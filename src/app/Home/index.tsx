@@ -30,7 +30,7 @@ export function Home() {
     // setItems([newItem])
 
     //pega estado anterior
-    setItems((prevState) => [...prevState, newItem])
+    // setItems((prevState) => [...prevState, newItem])
   }
 
 
