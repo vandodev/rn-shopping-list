@@ -39,7 +39,6 @@ export function Home() {
   async function itemsByStatus () {
     try {
       const response = await itemsStorage.getByStatus(filter)
-      console.log(response)
       setItems(response)
     } catch (error) {
       console.log(error)
@@ -71,6 +70,16 @@ export function Home() {
     } catch (error) {
       console.log(error)
       Alert.alert("Limpar", "Não foi possível remover todos os itens.")
+    }
+  }
+
+  async function handleToggleItemStatus(id: string) {
+    try {
+      await itemsStorage.toggleStatus(id)
+      await itemsByStatus()
+    } catch (error) {
+      console.log(error)
+      Alert.alert("Erro", "Não foi possível atualizar o status.")
     }
   }
 
@@ -113,7 +122,7 @@ export function Home() {
           renderItem={({ item }) => (
             <Item
               data={item}  
-              onStatus={() => console.log("mudar o status")}
+              onStatus={() => handleToggleItemStatus(item.id)}
               onRemove={() => handleRemove(item.id)}
             />
           )}
