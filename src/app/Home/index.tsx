@@ -111,7 +111,14 @@ export function Home() {
             />
           ))}
 
-          <TouchableOpacity style={styles.clearButton} onPress={handleClear}>
+          <TouchableOpacity
+            style={[
+              styles.clearButton,
+              items.length === 0 && styles.disabledButton 
+            ]}
+            onPress={handleClear}
+            disabled={items.length === 0}           
+          >
             <Text style={styles.clearText}>Limpar</Text>
           </TouchableOpacity>
         </View>

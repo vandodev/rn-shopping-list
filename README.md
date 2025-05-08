@@ -38,4 +38,4 @@ https://www.figma.com/community/file/1479824702066313496
 
 ### Melhorias 
 
-- [ ] Bloquear botão limpar quando a lista estiver vazia.
+- [x] Bloquear botão limpar quando a lista estiver vazia.
